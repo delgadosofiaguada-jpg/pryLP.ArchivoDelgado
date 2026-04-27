@@ -82,6 +82,7 @@
             this.agregarNuevoClienteToolStripMenuItem.Name = "agregarNuevoClienteToolStripMenuItem";
             this.agregarNuevoClienteToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
             this.agregarNuevoClienteToolStripMenuItem.Text = "Agregar nuevo cliente...";
+            this.agregarNuevoClienteToolStripMenuItem.Click += new System.EventHandler(this.agregarNuevoClienteToolStripMenuItem_Click);
             // 
             // listadoDeTodosLosClientesToolStripMenuItem
             // 
@@ -95,6 +96,7 @@
             this.listadoDeTodosLosDeudoresToolStripMenuItem.Name = "listadoDeTodosLosDeudoresToolStripMenuItem";
             this.listadoDeTodosLosDeudoresToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
             this.listadoDeTodosLosDeudoresToolStripMenuItem.Text = "Listado de todos los deudores...";
+            this.listadoDeTodosLosDeudoresToolStripMenuItem.Click += new System.EventHandler(this.listadoDeTodosLosDeudoresToolStripMenuItem_Click);
             // 
             // listadoOrdenadoDeClientesToolStripMenuItem
             // 
@@ -106,6 +108,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::pryLP.ArchivoDelgado.Properties.Resources.f;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;

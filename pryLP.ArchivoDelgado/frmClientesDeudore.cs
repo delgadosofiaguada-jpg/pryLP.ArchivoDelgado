@@ -10,19 +10,20 @@ using System.Windows.Forms;
 
 namespace pryLP.ArchivoDelgado
 {
-    public partial class frmListadoClientes : Form
+    public partial class frmClientesDeudore : Form
     {
-        public frmListadoClientes()
+        public frmClientesDeudore()
         {
             InitializeComponent();
         }
-        clsArchivoClientes x=new clsArchivoClientes();
-        private void frmListadoClientes_Load(object sender, EventArgs e)
+        clsArchivoClientes x = new clsArchivoClientes();
+
+        private void frmClientesDeudore_Load(object sender, EventArgs e)
         {
-            x.Listar(dgvConsultaDatos);
-            lblCantC.Text = x.CantidadClientes().ToString();
+            x.ListarDeudores(dgvConsultaDatos);
+            lblCantC.Text= x.CantidadClientes().ToString();
             lblTot.Text = x.DeudaClientes().ToString();
-            lblPromedioDeuda.Text = x.PromedioDeuda().ToString();
+            lblProm.Text = x.PromedioDeuda().ToString();
         }
     }
 }

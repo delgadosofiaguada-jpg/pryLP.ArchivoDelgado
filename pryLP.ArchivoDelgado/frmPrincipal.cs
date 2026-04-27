@@ -24,14 +24,28 @@ namespace pryLP.ArchivoDelgado
 
         private void acercaDelDesarrolladorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form formulario = new frmDatosDesarrollador();
-            formulario.ShowDialog();
+            
         }
 
         private void listadoDeTodosLosClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form formu = new frmListadoClientes();
-   
+            Form form = new frmListadoClientes();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void agregarNuevoClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = new frmDatosDesarrollador();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void listadoDeTodosLosDeudoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = new frmClientesDeudore();
+            form.MdiParent = this;
+            form.Show();
         }
     }
 }
