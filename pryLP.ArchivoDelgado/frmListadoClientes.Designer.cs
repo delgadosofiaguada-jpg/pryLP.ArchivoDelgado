@@ -34,6 +34,7 @@
             this.clLimite = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clDeuda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbConsultaDatos = new System.Windows.Forms.GroupBox();
+            this.cmdReporte = new System.Windows.Forms.Button();
             this.lblProm = new System.Windows.Forms.Label();
             this.lblCantC = new System.Windows.Forms.Label();
             this.lblTot = new System.Windows.Forms.Label();
@@ -52,7 +53,7 @@
             this.clUsuario,
             this.clLimite,
             this.clDeuda});
-            this.dgvConsultaDatos.Location = new System.Drawing.Point(19, 36);
+            this.dgvConsultaDatos.Location = new System.Drawing.Point(19, 51);
             this.dgvConsultaDatos.Name = "dgvConsultaDatos";
             this.dgvConsultaDatos.Size = new System.Drawing.Size(583, 217);
             this.dgvConsultaDatos.TabIndex = 0;
@@ -82,6 +83,7 @@
             // 
             // gbConsultaDatos
             // 
+            this.gbConsultaDatos.Controls.Add(this.cmdReporte);
             this.gbConsultaDatos.Controls.Add(this.lblProm);
             this.gbConsultaDatos.Controls.Add(this.lblCantC);
             this.gbConsultaDatos.Controls.Add(this.lblTot);
@@ -95,6 +97,18 @@
             this.gbConsultaDatos.TabIndex = 1;
             this.gbConsultaDatos.TabStop = false;
             this.gbConsultaDatos.Text = "Consulta de datos";
+            this.gbConsultaDatos.Enter += new System.EventHandler(this.gbConsultaDatos_Enter);
+            // 
+            // cmdReporte
+            // 
+            this.cmdReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdReporte.Location = new System.Drawing.Point(19, 340);
+            this.cmdReporte.Name = "cmdReporte";
+            this.cmdReporte.Size = new System.Drawing.Size(75, 30);
+            this.cmdReporte.TabIndex = 7;
+            this.cmdReporte.Text = "Reporte";
+            this.cmdReporte.UseVisualStyleBackColor = true;
+            this.cmdReporte.Click += new System.EventHandler(this.cmdReporte_Click);
             // 
             // lblProm
             // 
@@ -122,6 +136,7 @@
             this.lblTot.Size = new System.Drawing.Size(112, 21);
             this.lblTot.TabIndex = 4;
             this.lblTot.Visible = false;
+            this.lblTot.Click += new System.EventHandler(this.lblTot_Click);
             // 
             // lblPromedioDeuda
             // 
@@ -180,5 +195,6 @@
         private System.Windows.Forms.Label lblCantC;
         private System.Windows.Forms.Label lblTot;
         private System.Windows.Forms.Label lblPromedioDeuda;
+        private System.Windows.Forms.Button cmdReporte;
     }
 }

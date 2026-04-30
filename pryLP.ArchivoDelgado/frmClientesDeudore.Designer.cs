@@ -157,6 +157,7 @@
             this.ClientSize = new System.Drawing.Size(641, 427);
             this.Controls.Add(this.gbClientesDeudores);
             this.Name = "frmClientesDeudore";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmClientesDeudore";
             this.Load += new System.EventHandler(this.frmClientesDeudore_Load);
             this.gbClientesDeudores.ResumeLayout(false);

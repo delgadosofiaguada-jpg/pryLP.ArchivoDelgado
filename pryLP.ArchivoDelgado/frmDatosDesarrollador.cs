@@ -26,5 +26,10 @@ namespace pryLP.ArchivoDelgado
             txtLimite.Text = "";
             txtDeuda.Text = "";
         }
+
+        private void frmDatosDesarrollador_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

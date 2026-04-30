@@ -21,7 +21,7 @@ namespace pryLP.ArchivoDelgado
         private void frmClientesDeudore_Load(object sender, EventArgs e)
         {
             x.ListarDeudores(dgvConsultaDatos);
-            lblCantC.Text= x.CantidadClientes().ToString();
+            lblCantC.Text = x.CantidadClientes().ToString();
             lblTot.Text = x.DeudaClientes().ToString();
             lblProm.Text = x.PromedioDeuda().ToString();
         }

@@ -146,6 +146,51 @@ namespace pryLP.ArchivoDelgado
             AD.Dispose();
         }
 
+        public void GenerarReporte()
+        {
+            string DatosLeidos;
+            string[] VecDatos;
+
+            StreamWriter Reporte = new StreamWriter("Reposrte.csv",false);
+            //abrir
+            Reporte.WriteLine("Listado de Clientes");
+            Reporte.WriteLine("");
+            Reporte.WriteLine("Código;Nombre;Límite;Deuda");
+            StreamReader AD = new StreamReader(NombreArchivo);
+
+            //leer
+            DatosLeidos = AD.ReadLine();
+            Int32 cantidad = 0;
+            decimal total = 0;
+            while (DatosLeidos != null)
+            {
+
+                VecDatos = DatosLeidos.Split(';');//Separa dentro del vector los datos
+                Reporte.Write(VecDatos[0]);
+                Reporte.Write(";");
+                Reporte.Write(VecDatos[1]);
+                Reporte.Write(";");
+                Reporte.Write(VecDatos[2]);
+                Reporte.Write(";");
+                Reporte.WriteLine(VecDatos[3]);
+
+                DatosLeidos = AD.ReadLine();
+                cantidad++;
+                total = total + Convert.ToDecimal(VecDatos[3]);
+            }
+            //cerrar
+          
+            Reporte.WriteLine();
+            Reporte.Write("Total de Deudas:;;");
+            Reporte.WriteLine(total);
+            Reporte.Write("Cantidad de clientes:;;");
+            Reporte.WriteLine(cantidad);
+            Reporte.Write("Promedio de Deuda:;;");
+            Reporte.WriteLine(total/cantidad);
+            Reporte.Close();
+            Reporte.Dispose();
+        }
     }
+
 }
 

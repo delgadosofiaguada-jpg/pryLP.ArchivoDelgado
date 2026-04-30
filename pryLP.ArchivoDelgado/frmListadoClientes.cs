@@ -22,7 +22,24 @@ namespace pryLP.ArchivoDelgado
             x.Listar(dgvConsultaDatos);
             lblCantC.Text = x.CantidadClientes().ToString();
             lblTot.Text = x.DeudaClientes().ToString();
-            lblPromedioDeuda.Text = x.PromedioDeuda().ToString();
+            lblProm.Text = x.PromedioDeuda().ToString();
+
+        }
+
+        private void cmdReporte_Click(object sender, EventArgs e)
+        {
+            x.GenerarReporte();
+            MessageBox.Show("Reporte generado correctamente");
+        }
+
+        private void gbConsultaDatos_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTot_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
