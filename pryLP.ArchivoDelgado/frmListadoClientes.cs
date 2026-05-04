@@ -41,5 +41,11 @@ namespace pryLP.ArchivoDelgado
         {
 
         }
+
+        private void cmdOrdenar_Click(object sender, EventArgs e)
+        {
+            x.OrdenarArchivo();
+
+        }
     }
 }

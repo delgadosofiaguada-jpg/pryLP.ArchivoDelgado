@@ -41,6 +41,7 @@
             this.lblPromedioDeuda = new System.Windows.Forms.Label();
             this.lblCantidadClientes = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.cmdOrdenar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultaDatos)).BeginInit();
             this.gbConsultaDatos.SuspendLayout();
             this.SuspendLayout();
@@ -83,6 +84,7 @@
             // 
             // gbConsultaDatos
             // 
+            this.gbConsultaDatos.Controls.Add(this.cmdOrdenar);
             this.gbConsultaDatos.Controls.Add(this.cmdReporte);
             this.gbConsultaDatos.Controls.Add(this.lblProm);
             this.gbConsultaDatos.Controls.Add(this.lblCantC);
@@ -165,6 +167,17 @@
             this.lblTotal.TabIndex = 1;
             this.lblTotal.Text = "Total deuda:";
             // 
+            // cmdOrdenar
+            // 
+            this.cmdOrdenar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdOrdenar.Location = new System.Drawing.Point(128, 340);
+            this.cmdOrdenar.Name = "cmdOrdenar";
+            this.cmdOrdenar.Size = new System.Drawing.Size(75, 30);
+            this.cmdOrdenar.TabIndex = 8;
+            this.cmdOrdenar.Text = "Ordenar";
+            this.cmdOrdenar.UseVisualStyleBackColor = true;
+            this.cmdOrdenar.Click += new System.EventHandler(this.cmdOrdenar_Click);
+            // 
             // frmListadoClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -196,5 +209,6 @@
         private System.Windows.Forms.Label lblTot;
         private System.Windows.Forms.Label lblPromedioDeuda;
         private System.Windows.Forms.Button cmdReporte;
+        private System.Windows.Forms.Button cmdOrdenar;
     }
 }
