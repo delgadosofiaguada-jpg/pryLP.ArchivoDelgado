@@ -45,6 +45,10 @@ namespace pryLP.ArchivoDelgado
         private void cmdOrdenar_Click(object sender, EventArgs e)
         {
             x.OrdenarArchivo();
+            x.Listar(dgvConsultaDatos);
+            lblCantC.Text = x.CantidadClientes().ToString();
+            lblTot.Text = x.DeudaClientes().ToString();
+            lblProm.Text = x.PromedioDeuda().ToString();
 
         }
     }

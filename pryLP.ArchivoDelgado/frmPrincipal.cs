@@ -43,7 +43,7 @@ namespace pryLP.ArchivoDelgado
 
         private void listadoDeTodosLosDeudoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form form = new frmClientesDeudore();
+            Form form = new frmClientesDeudores();
             form.MdiParent = this;
             form.Show();
         }

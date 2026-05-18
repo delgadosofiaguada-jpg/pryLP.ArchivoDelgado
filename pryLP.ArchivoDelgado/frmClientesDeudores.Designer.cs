@@ -1,6 +1,6 @@
 ﻿namespace pryLP.ArchivoDelgado
 {
-    partial class frmClientesDeudore
+    partial class frmClientesDeudores
     {
         /// <summary>
         /// Required designer variable.

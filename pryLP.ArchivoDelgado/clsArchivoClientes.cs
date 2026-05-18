@@ -33,6 +33,10 @@ namespace pryLP.ArchivoDelgado
         }
         public void Listar(DataGridView Grilla)
         {
+            if (!File.Exists(NombreArchivo))
+            { 
+                return; 
+            }
             string DatosLeidos;
             string[] VecDatos;
             //abrir
@@ -45,7 +49,7 @@ namespace pryLP.ArchivoDelgado
 
                 VecDatos = DatosLeidos.Split(';');
 
-                Grilla.Rows.Add(VecDatos[0], VecDatos[1], VecDatos[2], VecDatos[3]);
+                Grilla.Rows.Add(VecDatos[0], VecDatos[1], VecDatos[3], VecDatos[2]);
                 DatosLeidos = AD.ReadLine();
             }
             //cerrar
@@ -55,6 +59,11 @@ namespace pryLP.ArchivoDelgado
 
         public Int32 CantidadClientes()
         {
+            if (!File.Exists(NombreArchivo))
+            {
+                return 0;
+            }
+
             string DatosLeidos;
             Int32 C = 0;
             //ABRIR
@@ -76,6 +85,10 @@ namespace pryLP.ArchivoDelgado
         }
         public Decimal DeudaClientes()
         {
+            if (!File.Exists(NombreArchivo))
+            {  
+                return 0;
+            }    
             string[] VecDatos = new string[4];
             string DatosLeidos;
             Decimal Total = 0;
@@ -119,7 +132,13 @@ namespace pryLP.ArchivoDelgado
             //CERRAR
             AD.Close();
             AD.Dispose();
+
+            if (C == 0)
+            {
+                return 0;
+            }
             return Total / C;
+            
 
         }
 
@@ -136,9 +155,9 @@ namespace pryLP.ArchivoDelgado
             {
 
                 VecDatos = DatosLeidos.Split(';');
-                if (Convert.ToInt32(VecDatos[2]) > 0)
+                if (Convert.ToDecimal(VecDatos[2]) > 0)
                 {
-                    Grilla.Rows.Add(VecDatos[0], VecDatos[1], VecDatos[2], VecDatos[3]);
+                    Grilla.Rows.Add(VecDatos[0], VecDatos[1], VecDatos[3], VecDatos[2]);
           
                 }
                 DatosLeidos = AD.ReadLine();

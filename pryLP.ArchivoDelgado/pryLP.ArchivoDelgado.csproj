@@ -47,11 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsArchivoClientes.cs" />
-    <Compile Include="frmClientesDeudore.cs">
+    <Compile Include="frmClientesDeudores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmClientesDeudore.Designer.cs">
-      <DependentUpon>frmClientesDeudore.cs</DependentUpon>
+    <Compile Include="frmClientesDeudores.Designer.cs">
+      <DependentUpon>frmClientesDeudores.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDatosDesarrollador.cs">
       <SubType>Form</SubType>
@@ -73,8 +73,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmClientesDeudore.resx">
-      <DependentUpon>frmClientesDeudore.cs</DependentUpon>
+    <EmbeddedResource Include="frmClientesDeudores.resx">
+      <DependentUpon>frmClientesDeudores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDatosDesarrollador.resx">
       <DependentUpon>frmDatosDesarrollador.cs</DependentUpon>

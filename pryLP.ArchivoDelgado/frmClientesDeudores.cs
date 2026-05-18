@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace pryLP.ArchivoDelgado
 {
-    public partial class frmClientesDeudore : Form
+    public partial class frmClientesDeudores : Form
     {
-        public frmClientesDeudore()
+        public frmClientesDeudores()
         {
             InitializeComponent();
         }
@@ -24,6 +24,7 @@ namespace pryLP.ArchivoDelgado
             lblCantC.Text = x.CantidadClientes().ToString();
             lblTot.Text = x.DeudaClientes().ToString();
             lblProm.Text = x.PromedioDeuda().ToString();
+           
         }
     }
 }
