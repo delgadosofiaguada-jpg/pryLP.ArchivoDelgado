@@ -142,7 +142,7 @@
             this.lblProm.Name = "lblProm";
             this.lblProm.Size = new System.Drawing.Size(149, 26);
             this.lblProm.TabIndex = 6;
-            this.lblProm.Visible = false;
+            this.lblProm.Visible = true;
             // 
             // lblCantC
             // 
@@ -152,7 +152,7 @@
             this.lblCantC.Name = "lblCantC";
             this.lblCantC.Size = new System.Drawing.Size(149, 26);
             this.lblCantC.TabIndex = 5;
-            this.lblCantC.Visible = false;
+            this.lblCantC.Visible = true;
             // 
             // lblTot
             // 
@@ -162,7 +162,7 @@
             this.lblTot.Name = "lblTot";
             this.lblTot.Size = new System.Drawing.Size(149, 26);
             this.lblTot.TabIndex = 4;
-            this.lblTot.Visible = false;
+            this.lblTot.Visible = true;
             this.lblTot.Click += new System.EventHandler(this.lblTot_Click);
             // 
             // lblPromedioDeuda
