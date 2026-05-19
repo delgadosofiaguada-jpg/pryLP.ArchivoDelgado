@@ -24,7 +24,9 @@ namespace pryLP.ArchivoDelgado
 
         private void acercaDelDesarrolladorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            Form form = new frmDatosDelDesarrollador();
+            form.MdiParent = this;
+            form.Show();
         }
 
         private void listadoDeTodosLosClientesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -51,6 +53,18 @@ namespace pryLP.ArchivoDelgado
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void frmGestorClientes_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listadoOrdenadoDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = new frmListadoOrdenadoClientes();
+            form.MdiParent = this;
+            form.Show();
         }
     }
 }

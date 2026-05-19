@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoClientes));
             this.dgvConsultaDatos = new System.Windows.Forms.DataGridView();
             this.clCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,7 +56,7 @@
             this.clLimite,
             this.clDeuda});
             this.dgvConsultaDatos.Location = new System.Drawing.Point(25, 63);
-            this.dgvConsultaDatos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvConsultaDatos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvConsultaDatos.Name = "dgvConsultaDatos";
             this.dgvConsultaDatos.RowHeadersWidth = 51;
             this.dgvConsultaDatos.Size = new System.Drawing.Size(777, 267);
@@ -101,9 +102,9 @@
             this.gbConsultaDatos.Controls.Add(this.lblTotal);
             this.gbConsultaDatos.Controls.Add(this.dgvConsultaDatos);
             this.gbConsultaDatos.Location = new System.Drawing.Point(17, 16);
-            this.gbConsultaDatos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbConsultaDatos.Margin = new System.Windows.Forms.Padding(4);
             this.gbConsultaDatos.Name = "gbConsultaDatos";
-            this.gbConsultaDatos.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbConsultaDatos.Padding = new System.Windows.Forms.Padding(4);
             this.gbConsultaDatos.Size = new System.Drawing.Size(813, 474);
             this.gbConsultaDatos.TabIndex = 1;
             this.gbConsultaDatos.TabStop = false;
@@ -114,7 +115,7 @@
             // 
             this.cmdOrdenar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdOrdenar.Location = new System.Drawing.Point(171, 418);
-            this.cmdOrdenar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdOrdenar.Margin = new System.Windows.Forms.Padding(4);
             this.cmdOrdenar.Name = "cmdOrdenar";
             this.cmdOrdenar.Size = new System.Drawing.Size(100, 37);
             this.cmdOrdenar.TabIndex = 8;
@@ -126,7 +127,7 @@
             // 
             this.cmdReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdReporte.Location = new System.Drawing.Point(25, 418);
-            this.cmdReporte.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmdReporte.Margin = new System.Windows.Forms.Padding(4);
             this.cmdReporte.Name = "cmdReporte";
             this.cmdReporte.Size = new System.Drawing.Size(100, 37);
             this.cmdReporte.TabIndex = 7;
@@ -142,7 +143,6 @@
             this.lblProm.Name = "lblProm";
             this.lblProm.Size = new System.Drawing.Size(149, 26);
             this.lblProm.TabIndex = 6;
-            this.lblProm.Visible = true;
             // 
             // lblCantC
             // 
@@ -152,7 +152,6 @@
             this.lblCantC.Name = "lblCantC";
             this.lblCantC.Size = new System.Drawing.Size(149, 26);
             this.lblCantC.TabIndex = 5;
-            this.lblCantC.Visible = true;
             // 
             // lblTot
             // 
@@ -162,7 +161,6 @@
             this.lblTot.Name = "lblTot";
             this.lblTot.Size = new System.Drawing.Size(149, 26);
             this.lblTot.TabIndex = 4;
-            this.lblTot.Visible = true;
             this.lblTot.Click += new System.EventHandler(this.lblTot_Click);
             // 
             // lblPromedioDeuda
@@ -201,7 +199,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(852, 505);
             this.Controls.Add(this.gbConsultaDatos);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmListadoClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmListadoClientes";

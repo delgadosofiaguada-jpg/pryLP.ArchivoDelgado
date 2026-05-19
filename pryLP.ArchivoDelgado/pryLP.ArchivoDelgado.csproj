@@ -53,6 +53,12 @@
     <Compile Include="frmClientesDeudores.Designer.cs">
       <DependentUpon>frmClientesDeudores.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDatosDelDesarrollador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDatosDelDesarrollador.Designer.cs">
+      <DependentUpon>frmDatosDelDesarrollador.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDatosDesarrollador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,12 @@
     <Compile Include="frmListadoClientes.Designer.cs">
       <DependentUpon>frmListadoClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmListadoOrdenadoClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListadoOrdenadoClientes.Designer.cs">
+      <DependentUpon>frmListadoOrdenadoClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,11 +88,17 @@
     <EmbeddedResource Include="frmClientesDeudores.resx">
       <DependentUpon>frmClientesDeudores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDatosDelDesarrollador.resx">
+      <DependentUpon>frmDatosDelDesarrollador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDatosDesarrollador.resx">
       <DependentUpon>frmDatosDesarrollador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListadoClientes.resx">
       <DependentUpon>frmListadoClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListadoOrdenadoClientes.resx">
+      <DependentUpon>frmListadoOrdenadoClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
@@ -108,6 +126,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WIII.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

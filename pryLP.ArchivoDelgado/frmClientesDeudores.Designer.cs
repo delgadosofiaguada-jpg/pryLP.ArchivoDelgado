@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmClientesDeudores));
             this.gbClientesDeudores = new System.Windows.Forms.GroupBox();
             this.lblProm = new System.Windows.Forms.Label();
             this.lblCantC = new System.Windows.Forms.Label();
@@ -54,9 +55,9 @@
             this.gbClientesDeudores.Controls.Add(this.lblTotal);
             this.gbClientesDeudores.Controls.Add(this.dgvConsultaDatos);
             this.gbClientesDeudores.Location = new System.Drawing.Point(16, 30);
-            this.gbClientesDeudores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbClientesDeudores.Margin = new System.Windows.Forms.Padding(4);
             this.gbClientesDeudores.Name = "gbClientesDeudores";
-            this.gbClientesDeudores.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbClientesDeudores.Padding = new System.Windows.Forms.Padding(4);
             this.gbClientesDeudores.Size = new System.Drawing.Size(813, 474);
             this.gbClientesDeudores.TabIndex = 2;
             this.gbClientesDeudores.TabStop = false;
@@ -71,7 +72,6 @@
             this.lblProm.Name = "lblProm";
             this.lblProm.Size = new System.Drawing.Size(149, 26);
             this.lblProm.TabIndex = 6;
-            this.lblProm.Visible = true;
             // 
             // lblCantC
             // 
@@ -81,7 +81,6 @@
             this.lblCantC.Name = "lblCantC";
             this.lblCantC.Size = new System.Drawing.Size(149, 26);
             this.lblCantC.TabIndex = 5;
-            this.lblCantC.Visible = true;
             // 
             // lblTot
             // 
@@ -91,7 +90,6 @@
             this.lblTot.Name = "lblTot";
             this.lblTot.Size = new System.Drawing.Size(149, 26);
             this.lblTot.TabIndex = 4;
-            this.lblTot.Visible = true;
             // 
             // lblPromedioDeuda
             // 
@@ -132,7 +130,7 @@
             this.clLimite,
             this.clDeuda});
             this.dgvConsultaDatos.Location = new System.Drawing.Point(25, 44);
-            this.dgvConsultaDatos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvConsultaDatos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvConsultaDatos.Name = "dgvConsultaDatos";
             this.dgvConsultaDatos.RowHeadersWidth = 51;
             this.dgvConsultaDatos.Size = new System.Drawing.Size(777, 267);
@@ -172,7 +170,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(855, 526);
             this.Controls.Add(this.gbClientesDeudores);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmClientesDeudores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmClientesDeudore";

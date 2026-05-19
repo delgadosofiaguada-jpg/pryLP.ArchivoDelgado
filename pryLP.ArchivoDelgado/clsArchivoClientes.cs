@@ -141,7 +141,33 @@ namespace pryLP.ArchivoDelgado
             
 
         }
-
+        public Decimal PromedioDeudores()
+        {
+            if (!File.Exists(NombreArchivo))
+            {
+                return 0;
+            }
+            string[] VecDatos = new string[4];
+            string DatosLeidos;
+            Decimal Total = 0;
+            Int32 C = 0;
+            StreamReader AD = new StreamReader(NombreArchivo);
+            DatosLeidos = AD.ReadLine();
+            while (DatosLeidos != null)
+            {
+                VecDatos = DatosLeidos.Split(';');
+                if (Convert.ToDecimal(VecDatos[2]) > 0)
+                {
+                    Total = Total + Convert.ToDecimal(VecDatos[2]);
+                    C++;
+                }
+                DatosLeidos = AD.ReadLine();
+            }
+            AD.Close();
+            AD.Dispose();
+            if (C == 0) return 0;
+            return Total / C;
+        }
         public void ListarDeudores(DataGridView Grilla)
         {
             string DatosLeidos;
@@ -257,6 +283,44 @@ namespace pryLP.ArchivoDelgado
                 }
             }
             
+        }
+
+        public void OrdenarPorLimite()
+        {
+            CargarVector();
+            RegClientes aux;
+            for (Int32 c = 0; c < IND - 1; c++)
+            {
+                for (Int32 i = 0; i < IND - 1; i++)//Recorre el vector
+                {
+                    if (VecClientes[i].Lim > VecClientes[i + 1].Lim)
+                    {
+                        aux = VecClientes[i];
+                        VecClientes[i] = VecClientes[i + 1];
+                        VecClientes[i + 1] = aux;
+                    }
+                }   
+            }     
+            ReescribirArchivo();
+        }
+
+        public void OrdenarPorDeuda()
+        {
+            CargarVector();
+            RegClientes aux;
+            for (Int32 c = 0; c < IND - 1; c++)
+            {
+                for (Int32 i = 0; i < IND - 1; i++)
+                {
+                    if (VecClientes[i].Deu > VecClientes[i + 1].Deu)
+                    {
+                        aux = VecClientes[i];
+                        VecClientes[i] = VecClientes[i + 1];
+                        VecClientes[i + 1] = aux;
+                    }
+                }   
+            }   
+            ReescribirArchivo();
         }
         private void ReescribirArchivo()
         {
