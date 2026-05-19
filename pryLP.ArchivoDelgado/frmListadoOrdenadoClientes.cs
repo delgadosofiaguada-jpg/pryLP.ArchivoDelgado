@@ -19,39 +19,29 @@ namespace pryLP.ArchivoDelgado
 
         private void frmListadoOrdenadoClientes_Load(object sender, EventArgs e)
         {
-
-        }
-        clsArchivoClientes x = new clsArchivoClientes();
-
-        private void frmListadoOrdenado_Load(object sender, EventArgs e)
-        {
             x.Listar(dgvListar);
         }
-
-        private void radCodigo_CheckedChanged(object sender, EventArgs e)
+        clsArchivoClientes x = new clsArchivoClientes();
+        private void cmdListar_Click(object sender, EventArgs e)
         {
             if (rbCodigo.Checked)
             {
                 x.OrdenarArchivo();
                 x.Listar(dgvListar);
             }
-        }
-
-        private void radLimite_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbLimite.Checked)
+            else if (rbLimite.Checked)
             {
                 x.OrdenarPorLimite();
-                x.Listar(dgvListar));
+                x.Listar(dgvListar);
             }
-        }
-
-        private void radDeuda_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbDeuda.Checked)
+            else if (rbDeuda.Checked)
             {
                 x.OrdenarPorDeuda();
-                x.Listar(dgvListar));
+                x.Listar(dgvListar);
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un criterio de ordenamiento antes de listar");
             }
         }
     }

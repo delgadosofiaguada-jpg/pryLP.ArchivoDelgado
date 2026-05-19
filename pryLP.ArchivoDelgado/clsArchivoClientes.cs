@@ -31,6 +31,8 @@ namespace pryLP.ArchivoDelgado
             AD.Close();
             AD.Dispose();
         }
+
+        //LISTAR LOS CLIENTES EN UNA GRILLA:
         public void Listar(DataGridView Grilla)
         {
             if (!File.Exists(NombreArchivo))
@@ -141,64 +143,13 @@ namespace pryLP.ArchivoDelgado
             
 
         }
-        public Decimal PromedioDeudores()
-        {
-            if (!File.Exists(NombreArchivo))
-            {
-                return 0;
-            }
-            string[] VecDatos = new string[4];
-            string DatosLeidos;
-            Decimal Total = 0;
-            Int32 C = 0;
-            StreamReader AD = new StreamReader(NombreArchivo);
-            DatosLeidos = AD.ReadLine();
-            while (DatosLeidos != null)
-            {
-                VecDatos = DatosLeidos.Split(';');
-                if (Convert.ToDecimal(VecDatos[2]) > 0)
-                {
-                    Total = Total + Convert.ToDecimal(VecDatos[2]);
-                    C++;
-                }
-                DatosLeidos = AD.ReadLine();
-            }
-            AD.Close();
-            AD.Dispose();
-            if (C == 0) return 0;
-            return Total / C;
-        }
-        public void ListarDeudores(DataGridView Grilla)
-        {
-            string DatosLeidos;
-            string[] VecDatos;
-            //abrir
-            StreamReader AD = new StreamReader(NombreArchivo);
-            //leer
-            DatosLeidos = AD.ReadLine();
-            Grilla.Rows.Clear();
-            while (DatosLeidos != null)
-            {
-
-                VecDatos = DatosLeidos.Split(';');
-                if (Convert.ToDecimal(VecDatos[2]) > 0)
-                {
-                    Grilla.Rows.Add(VecDatos[0], VecDatos[1], VecDatos[3], VecDatos[2]);
-          
-                }
-                DatosLeidos = AD.ReadLine();
-            }
-            //cerrar
-            AD.Close();
-            AD.Dispose();
-        }
-
+        
         public void GenerarReporte()
         {
             string DatosLeidos;
             string[] VecDatos;
 
-            StreamWriter Reporte = new StreamWriter("Reposrte.csv",false);
+            StreamWriter Reporte = new StreamWriter("Reposrte.csv", false);
             //abrir
             Reporte.WriteLine("Listado de Clientes");
             Reporte.WriteLine("");
@@ -226,24 +177,18 @@ namespace pryLP.ArchivoDelgado
                 total = total + Convert.ToDecimal(VecDatos[3]);
             }
             //cerrar
-          
+
             Reporte.WriteLine();
             Reporte.Write("Total de Deudas:;;");
             Reporte.WriteLine(total);
             Reporte.Write("Cantidad de clientes:;;");
             Reporte.WriteLine(cantidad);
             Reporte.Write("Promedio de Deuda:;;");
-            Reporte.WriteLine(total/cantidad);
+            Reporte.WriteLine(total / cantidad);
             Reporte.Close();
             Reporte.Dispose();
         }
-        private struct RegClientes
-        {
-            public Int32 Cod;
-            public String Nom;
-            public Decimal Deu;
-            public Decimal Lim;
-        }
+
         private RegClientes[] VecClientes = new RegClientes[1500];
         private Int32 IND = 0;
         private void CargarVector()
@@ -252,7 +197,7 @@ namespace pryLP.ArchivoDelgado
             string[] VecDatos = new string[4];
             IND = 0;
             StreamReader AD = new StreamReader(NombreArchivo);
-            
+
             DatosLeidos = AD.ReadLine();
             while (DatosLeidos != null)
             {
@@ -267,10 +212,29 @@ namespace pryLP.ArchivoDelgado
             AD.Close();
             AD.Dispose();
         }
-        private  void OrdenarVector()
+
+
+        private void ReescribirArchivo()
+        {
+            StreamWriter AD = new StreamWriter(NombreArchivo, false);//false,borra todo y carga nuevos, no duplica
+            for (Int32 i = 0; i < IND; i++)
+            {
+                AD.Write(VecClientes[i].Cod);
+                AD.Write(";");
+                AD.Write(VecClientes[i].Nom);
+                AD.Write(";");
+                AD.Write(VecClientes[i].Lim);
+                AD.Write(";");
+                AD.Write(VecClientes[i].Deu);
+                AD.WriteLine();
+            }
+            AD.Close();
+            AD.Dispose();
+        }
+        private void OrdenarVector()
         {
             RegClientes aux;
-            for (Int32 c= 0; c < IND - 1; c++)
+            for (Int32 c = 0; c < IND - 1; c++)
             {
                 for (Int32 i = 0; i < IND - 1; i++)//Recorre el vector
                 {
@@ -282,10 +246,98 @@ namespace pryLP.ArchivoDelgado
                     }
                 }
             }
-            
+
+        }
+        public void OrdenarArchivo()
+        {
+            CargarVector();
+            OrdenarVector();
+            ReescribirArchivo();
         }
 
-        public void OrdenarPorLimite()
+
+        //LISTAR DEUDORES:
+        public void ListarDeudores(DataGridView Grilla)
+        {
+            string DatosLeidos;
+            string[] VecDatos;
+            //abrir
+            StreamReader AD = new StreamReader(NombreArchivo);
+            //leer
+            DatosLeidos = AD.ReadLine();
+            Grilla.Rows.Clear();
+            while (DatosLeidos != null)
+            {
+
+                VecDatos = DatosLeidos.Split(';');
+                if (Convert.ToDecimal(VecDatos[2]) > 0)
+                {
+                    Grilla.Rows.Add(VecDatos[0], VecDatos[1], VecDatos[3], VecDatos[2]);
+          
+                }
+                DatosLeidos = AD.ReadLine();
+            }
+            //cerrar
+            AD.Close();
+            AD.Dispose();
+        }
+        public Decimal DeudaDeudores()
+        {
+            if (!File.Exists(NombreArchivo)) return 0;
+            string[] VecDatos = new string[4];
+            string DatosLeidos;
+            Decimal Total = 0;
+            StreamReader AD = new StreamReader(NombreArchivo);
+            DatosLeidos = AD.ReadLine();
+            while (DatosLeidos != null)
+            {
+                VecDatos = DatosLeidos.Split(';');
+                if (Convert.ToDecimal(VecDatos[2]) > 0)
+                    Total = Total + Convert.ToDecimal(VecDatos[2]);
+                DatosLeidos = AD.ReadLine();
+            }
+            AD.Close();
+            AD.Dispose();
+            return Total;
+        }
+
+        public Decimal PromedioDeudores()
+        {
+            if (!File.Exists(NombreArchivo))
+            {
+                return 0;
+            }
+            string[] VecDatos = new string[4];
+            string DatosLeidos;
+            Decimal Total = 0;
+            Int32 C = 0;
+            StreamReader AD = new StreamReader(NombreArchivo);
+            DatosLeidos = AD.ReadLine();
+            while (DatosLeidos != null)
+            {
+                VecDatos = DatosLeidos.Split(';');
+                if (Convert.ToDecimal(VecDatos[2]) > 0)
+                {
+                    Total = Total + Convert.ToDecimal(VecDatos[2]);
+                    C++;
+                }
+                DatosLeidos = AD.ReadLine();
+            }
+            AD.Close();
+            AD.Dispose();
+            if (C == 0) return 0;
+            return Total / C;
+        }
+        private struct RegClientes
+        {
+            public Int32 Cod;
+            public String Nom;
+            public Decimal Deu;
+            public Decimal Lim;
+        }
+     
+        //ORDENAR:
+        public void OrdenarPorDeuda()
         {
             CargarVector();
             RegClientes aux;
@@ -304,7 +356,7 @@ namespace pryLP.ArchivoDelgado
             ReescribirArchivo();
         }
 
-        public void OrdenarPorDeuda()
+        public void OrdenarPorLimite()
         {
             CargarVector();
             RegClientes aux;
@@ -320,30 +372,6 @@ namespace pryLP.ArchivoDelgado
                     }
                 }   
             }   
-            ReescribirArchivo();
-        }
-        private void ReescribirArchivo()
-        {
-            StreamWriter AD =new StreamWriter(NombreArchivo, false);//false,borra todo y carga nuevos, no duplica
-            for (Int32 i=0; i<IND; i++)
-            {
-                AD.Write(VecClientes[i].Cod);
-                AD.Write(";");
-                AD.Write(VecClientes[i].Nom);
-                AD.Write(";");
-                AD.Write(VecClientes[i].Lim);
-                AD.Write(";");
-                AD.Write(VecClientes[i].Deu);
-                AD.WriteLine();
-            }
-            AD.Close();
-            AD.Dispose();
-        }
-        
-        public void OrdenarArchivo()
-        {
-            CargarVector();
-            OrdenarVector();
             ReescribirArchivo();
         }
 

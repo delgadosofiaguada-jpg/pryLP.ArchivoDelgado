@@ -38,6 +38,7 @@
             this.rbLimite = new System.Windows.Forms.RadioButton();
             this.rbDeuda = new System.Windows.Forms.RadioButton();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.cmdListar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,11 +131,23 @@
             this.lblTitulo.TabIndex = 5;
             this.lblTitulo.Text = "Seleccione como desea ordenar el listado de clientes:";
             // 
+            // cmdListar
+            // 
+            this.cmdListar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdListar.Location = new System.Drawing.Point(638, 146);
+            this.cmdListar.Name = "cmdListar";
+            this.cmdListar.Size = new System.Drawing.Size(149, 35);
+            this.cmdListar.TabIndex = 6;
+            this.cmdListar.Text = "Listar";
+            this.cmdListar.UseVisualStyleBackColor = true;
+            this.cmdListar.Click += new System.EventHandler(this.cmdListar_Click);
+            // 
             // frmListadoOrdenadoClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 480);
+            this.Controls.Add(this.cmdListar);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.rbDeuda);
             this.Controls.Add(this.rbLimite);
@@ -162,5 +175,6 @@
         private System.Windows.Forms.RadioButton rbLimite;
         private System.Windows.Forms.RadioButton rbDeuda;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Button cmdListar;
     }
 }
