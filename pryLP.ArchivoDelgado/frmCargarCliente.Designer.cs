@@ -1,6 +1,6 @@
 ﻿namespace pryLP.ArchivoDelgado
 {
-    partial class frmDatosDesarrollador
+    partial class frmCargarCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCargarCliente));
             this.gbDatosDes = new System.Windows.Forms.GroupBox();
             this.txtLimite = new System.Windows.Forms.TextBox();
             this.txtDeuda = new System.Windows.Forms.TextBox();
@@ -133,15 +134,16 @@
             this.lblCodigo.TabIndex = 0;
             this.lblCodigo.Text = "Código:";
             // 
-            // frmDatosDesarrollador
+            // frmCargarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(485, 199);
             this.Controls.Add(this.gbDatosDes);
-            this.Name = "frmDatosDesarrollador";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "frmCargarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmDatosDesarrollador";
+            this.Text = "Cargar nuevo cliente";
             this.Load += new System.EventHandler(this.frmDatosDesarrollador_Load);
             this.gbDatosDes.ResumeLayout(false);
             this.gbDatosDes.PerformLayout();

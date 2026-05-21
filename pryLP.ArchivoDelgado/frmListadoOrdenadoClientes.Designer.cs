@@ -39,6 +39,8 @@
             this.rbDeuda = new System.Windows.Forms.RadioButton();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.cmdListar = new System.Windows.Forms.Button();
+            this.rbAscendente = new System.Windows.Forms.RadioButton();
+            this.rbDescendente = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,11 +52,10 @@
             this.clUsuario,
             this.clLimite,
             this.clDeuda});
-            this.dgvListar.Location = new System.Drawing.Point(10, 200);
-            this.dgvListar.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvListar.Location = new System.Drawing.Point(5, 161);
             this.dgvListar.Name = "dgvListar";
             this.dgvListar.RowHeadersWidth = 51;
-            this.dgvListar.Size = new System.Drawing.Size(777, 267);
+            this.dgvListar.Size = new System.Drawing.Size(583, 217);
             this.dgvListar.TabIndex = 1;
             // 
             // clCodigo
@@ -89,9 +90,10 @@
             // 
             this.rbCodigo.AutoSize = true;
             this.rbCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCodigo.Location = new System.Drawing.Point(13, 61);
+            this.rbCodigo.Location = new System.Drawing.Point(10, 50);
+            this.rbCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbCodigo.Name = "rbCodigo";
-            this.rbCodigo.Size = new System.Drawing.Size(161, 22);
+            this.rbCodigo.Size = new System.Drawing.Size(133, 19);
             this.rbCodigo.TabIndex = 2;
             this.rbCodigo.TabStop = true;
             this.rbCodigo.Text = "Ordenar por Código";
@@ -101,9 +103,10 @@
             // 
             this.rbLimite.AutoSize = true;
             this.rbLimite.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbLimite.Location = new System.Drawing.Point(13, 106);
+            this.rbLimite.Location = new System.Drawing.Point(10, 86);
+            this.rbLimite.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbLimite.Name = "rbLimite";
-            this.rbLimite.Size = new System.Drawing.Size(152, 22);
+            this.rbLimite.Size = new System.Drawing.Size(128, 19);
             this.rbLimite.TabIndex = 3;
             this.rbLimite.TabStop = true;
             this.rbLimite.Text = "Ordenar por Límite";
@@ -113,9 +116,10 @@
             // 
             this.rbDeuda.AutoSize = true;
             this.rbDeuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbDeuda.Location = new System.Drawing.Point(13, 146);
+            this.rbDeuda.Location = new System.Drawing.Point(10, 119);
+            this.rbDeuda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbDeuda.Name = "rbDeuda";
-            this.rbDeuda.Size = new System.Drawing.Size(156, 22);
+            this.rbDeuda.Size = new System.Drawing.Size(131, 19);
             this.rbDeuda.TabIndex = 4;
             this.rbDeuda.TabStop = true;
             this.rbDeuda.Text = "Ordenar por Deuda";
@@ -125,28 +129,60 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(10, 18);
+            this.lblTitulo.Location = new System.Drawing.Point(8, 15);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(416, 18);
+            this.lblTitulo.Size = new System.Drawing.Size(355, 15);
             this.lblTitulo.TabIndex = 5;
             this.lblTitulo.Text = "Seleccione como desea ordenar el listado de clientes:";
             // 
             // cmdListar
             // 
             this.cmdListar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdListar.Location = new System.Drawing.Point(638, 146);
+            this.cmdListar.Location = new System.Drawing.Point(478, 119);
+            this.cmdListar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmdListar.Name = "cmdListar";
-            this.cmdListar.Size = new System.Drawing.Size(149, 35);
+            this.cmdListar.Size = new System.Drawing.Size(112, 28);
             this.cmdListar.TabIndex = 6;
             this.cmdListar.Text = "Listar";
             this.cmdListar.UseVisualStyleBackColor = true;
             this.cmdListar.Click += new System.EventHandler(this.cmdListar_Click);
             // 
+            // rbAscendente
+            // 
+            this.rbAscendente.AutoSize = true;
+            this.rbAscendente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbAscendente.ForeColor = System.Drawing.Color.DarkRed;
+            this.rbAscendente.Location = new System.Drawing.Point(11, 397);
+            this.rbAscendente.Margin = new System.Windows.Forms.Padding(2);
+            this.rbAscendente.Name = "rbAscendente";
+            this.rbAscendente.Size = new System.Drawing.Size(99, 19);
+            this.rbAscendente.TabIndex = 7;
+            this.rbAscendente.TabStop = true;
+            this.rbAscendente.Text = "Ascendente";
+            this.rbAscendente.UseVisualStyleBackColor = true;
+            // 
+            // rbDescendente
+            // 
+            this.rbDescendente.AutoSize = true;
+            this.rbDescendente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbDescendente.ForeColor = System.Drawing.Color.DarkRed;
+            this.rbDescendente.Location = new System.Drawing.Point(11, 433);
+            this.rbDescendente.Margin = new System.Windows.Forms.Padding(2);
+            this.rbDescendente.Name = "rbDescendente";
+            this.rbDescendente.Size = new System.Drawing.Size(109, 19);
+            this.rbDescendente.TabIndex = 8;
+            this.rbDescendente.TabStop = true;
+            this.rbDescendente.Text = "Descendente";
+            this.rbDescendente.UseVisualStyleBackColor = true;
+            // 
             // frmListadoOrdenadoClientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 480);
+            this.ClientSize = new System.Drawing.Size(600, 473);
+            this.Controls.Add(this.rbDescendente);
+            this.Controls.Add(this.rbAscendente);
             this.Controls.Add(this.cmdListar);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.rbDeuda);
@@ -154,6 +190,7 @@
             this.Controls.Add(this.rbCodigo);
             this.Controls.Add(this.dgvListar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmListadoOrdenadoClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listado Ordenado de los clientes";
@@ -176,5 +213,7 @@
         private System.Windows.Forms.RadioButton rbDeuda;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button cmdListar;
+        private System.Windows.Forms.RadioButton rbAscendente;
+        private System.Windows.Forms.RadioButton rbDescendente;
     }
 }

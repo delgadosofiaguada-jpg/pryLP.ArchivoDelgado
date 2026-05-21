@@ -38,7 +38,7 @@ namespace pryLP.ArchivoDelgado
 
         private void agregarNuevoClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form form = new frmDatosDesarrollador();
+            Form form = new frmCargarCliente();
             form.MdiParent = this;
             form.Show();
         }

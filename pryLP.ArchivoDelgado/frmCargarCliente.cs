@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace pryLP.ArchivoDelgado
 {
-    public partial class frmDatosDesarrollador : Form
+    public partial class frmCargarCliente : Form
     {
-        public frmDatosDesarrollador()
+        public frmCargarCliente()
         {
             InitializeComponent();
         }
