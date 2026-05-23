@@ -169,13 +169,13 @@ namespace pryLP.ArchivoDelgado
                 Reporte.Write(";");
                 Reporte.Write(VecDatos[1]);
                 Reporte.Write(";");
-                Reporte.Write(VecDatos[2]);
+                Reporte.Write(VecDatos[3]);
                 Reporte.Write(";");
-                Reporte.WriteLine(VecDatos[3]);
+                Reporte.WriteLine(VecDatos[2]);
 
                 DatosLeidos = AD.ReadLine();
                 cantidad++;
-                total = total + Convert.ToDecimal(VecDatos[3]);
+                total = total + Convert.ToDecimal(VecDatos[2]);
             }
             //cerrar
 
@@ -336,43 +336,79 @@ namespace pryLP.ArchivoDelgado
             public Decimal Deu;
             public Decimal Lim;
         }
-     
+
         //ORDENAR:
+        public void OrdenarArchivoDes()
+        {
+            CargarVector();
+            RegClientes aux;
+            for (Int32 c = 0; c < IND - 1; c++)
+                for (Int32 i = 0; i < IND - 1; i++)
+                    if (VecClientes[i].Cod < VecClientes[i + 1].Cod)
+                    {
+                        aux = VecClientes[i];
+                        VecClientes[i] = VecClientes[i + 1];
+                        VecClientes[i + 1] = aux;
+                    }
+            ReescribirArchivo();
+        }
+
         public void OrdenarPorDeuda()
         {
             CargarVector();
             RegClientes aux;
             for (Int32 c = 0; c < IND - 1; c++)
-            {
-                for (Int32 i = 0; i < IND - 1; i++)//Recorre el vector
-                {
+                for (Int32 i = 0; i < IND - 1; i++)
                     if (VecClientes[i].Lim > VecClientes[i + 1].Lim)
                     {
                         aux = VecClientes[i];
                         VecClientes[i] = VecClientes[i + 1];
                         VecClientes[i + 1] = aux;
                     }
-                }   
-            }     
             ReescribirArchivo();
         }
 
+        public void OrdenarPorDeudaDes()
+        {
+            CargarVector();
+            RegClientes aux;
+            for (Int32 c = 0; c < IND - 1; c++)
+                for (Int32 i = 0; i < IND - 1; i++)
+                    if (VecClientes[i].Lim < VecClientes[i + 1].Lim)
+                    {
+                        aux = VecClientes[i];
+                        VecClientes[i] = VecClientes[i + 1];
+                        VecClientes[i + 1] = aux;
+                    }
+            ReescribirArchivo();
+        }
         public void OrdenarPorLimite()
         {
             CargarVector();
             RegClientes aux;
             for (Int32 c = 0; c < IND - 1; c++)
-            {
                 for (Int32 i = 0; i < IND - 1; i++)
-                {
                     if (VecClientes[i].Deu > VecClientes[i + 1].Deu)
                     {
                         aux = VecClientes[i];
                         VecClientes[i] = VecClientes[i + 1];
                         VecClientes[i + 1] = aux;
                     }
-                }   
-            }   
+            ReescribirArchivo();
+        }
+
+        public void OrdenarPorLimiteDes()
+        {
+            CargarVector();
+            RegClientes aux;
+            for (Int32 c = 0; c < IND - 1; c++)
+                for (Int32 i = 0; i < IND - 1; i++)
+                    if (VecClientes[i].Deu < VecClientes[i + 1].Deu)
+                    {
+                        aux = VecClientes[i];
+                        VecClientes[i] = VecClientes[i + 1];
+                        VecClientes[i + 1] = aux;
+                    }
             ReescribirArchivo();
         }
 

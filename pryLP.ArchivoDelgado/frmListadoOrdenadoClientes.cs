@@ -24,25 +24,49 @@ namespace pryLP.ArchivoDelgado
         clsArchivoClientes x = new clsArchivoClientes();
         private void cmdListar_Click(object sender, EventArgs e)
         {
-            if (rbCodigo.Checked)
+
+            if (cbCampo.SelectedIndex == -1 || cbModo.SelectedIndex == -1)
             {
-                x.OrdenarArchivo();
-                x.Listar(dgvListar);
+                MessageBox.Show("Seleccione un campo y un modo de ordenamiento");
+                return;
             }
-            else if (rbLimite.Checked)
+
+            switch (cbCampo.SelectedIndex)
             {
-                x.OrdenarPorLimite();
-                x.Listar(dgvListar);
+                case 0: // Código
+                    if (cbModo.SelectedIndex == 0)
+                    {
+                        x.OrdenarArchivo();
+                    }
+                    else
+                    {
+                        x.OrdenarArchivoDes();
+                    } 
+                    break;
+                case 1: // Límite
+                    if (cbModo.SelectedIndex == 0)
+                    {
+                        x.OrdenarPorLimite();
+                    }
+                    else
+                    {
+                        x.OrdenarPorLimiteDes();
+                    }
+                    break;
+                case 2: // Deuda
+                    if (cbModo.SelectedIndex == 0)
+                    {
+                        x.OrdenarPorDeuda();
+                    }
+                    else
+                    {
+                        x.OrdenarPorDeudaDes();
+                    }
+                break;
             }
-            else if (rbDeuda.Checked)
-            {
-                x.OrdenarPorDeuda();
-                x.Listar(dgvListar);
-            }
-            else
-            {
-                MessageBox.Show("Seleccione un criterio de ordenamiento antes de listar");
-            }
+
+            x.Listar(dgvListar);
         }
     }
+    
 }

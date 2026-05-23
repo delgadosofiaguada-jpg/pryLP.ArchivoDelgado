@@ -30,10 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoClientes));
             this.dgvConsultaDatos = new System.Windows.Forms.DataGridView();
-            this.clCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clLimite = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clDeuda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbConsultaDatos = new System.Windows.Forms.GroupBox();
             this.cmdOrdenar = new System.Windows.Forms.Button();
             this.cmdReporte = new System.Windows.Forms.Button();
@@ -43,6 +39,10 @@
             this.lblPromedioDeuda = new System.Windows.Forms.Label();
             this.lblCantidadClientes = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.clCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clLimite = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clDeuda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultaDatos)).BeginInit();
             this.gbConsultaDatos.SuspendLayout();
             this.SuspendLayout();
@@ -61,34 +61,6 @@
             this.dgvConsultaDatos.RowHeadersWidth = 51;
             this.dgvConsultaDatos.Size = new System.Drawing.Size(777, 267);
             this.dgvConsultaDatos.TabIndex = 0;
-            // 
-            // clCodigo
-            // 
-            this.clCodigo.HeaderText = "Código";
-            this.clCodigo.MinimumWidth = 6;
-            this.clCodigo.Name = "clCodigo";
-            this.clCodigo.Width = 120;
-            // 
-            // clUsuario
-            // 
-            this.clUsuario.HeaderText = "Usuario";
-            this.clUsuario.MinimumWidth = 6;
-            this.clUsuario.Name = "clUsuario";
-            this.clUsuario.Width = 160;
-            // 
-            // clLimite
-            // 
-            this.clLimite.HeaderText = "Limite";
-            this.clLimite.MinimumWidth = 6;
-            this.clLimite.Name = "clLimite";
-            this.clLimite.Width = 160;
-            // 
-            // clDeuda
-            // 
-            this.clDeuda.HeaderText = "Deuda";
-            this.clDeuda.MinimumWidth = 6;
-            this.clDeuda.Name = "clDeuda";
-            this.clDeuda.Width = 125;
             // 
             // gbConsultaDatos
             // 
@@ -193,6 +165,34 @@
             this.lblTotal.TabIndex = 1;
             this.lblTotal.Text = "Total deuda:";
             // 
+            // clCodigo
+            // 
+            this.clCodigo.HeaderText = "Código";
+            this.clCodigo.MinimumWidth = 6;
+            this.clCodigo.Name = "clCodigo";
+            this.clCodigo.Width = 120;
+            // 
+            // clUsuario
+            // 
+            this.clUsuario.HeaderText = "Usuario";
+            this.clUsuario.MinimumWidth = 6;
+            this.clUsuario.Name = "clUsuario";
+            this.clUsuario.Width = 160;
+            // 
+            // clLimite
+            // 
+            this.clLimite.HeaderText = "Limite";
+            this.clLimite.MinimumWidth = 6;
+            this.clLimite.Name = "clLimite";
+            this.clLimite.Width = 160;
+            // 
+            // clDeuda
+            // 
+            this.clDeuda.HeaderText = "Deuda";
+            this.clDeuda.MinimumWidth = 6;
+            this.clDeuda.Name = "clDeuda";
+            this.clDeuda.Width = 125;
+            // 
             // frmListadoClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -215,10 +215,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvConsultaDatos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clCodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clLimite;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clDeuda;
         private System.Windows.Forms.GroupBox gbConsultaDatos;
         private System.Windows.Forms.Label lblCantidadClientes;
         private System.Windows.Forms.Label lblTotal;
@@ -228,5 +224,9 @@
         private System.Windows.Forms.Label lblPromedioDeuda;
         private System.Windows.Forms.Button cmdReporte;
         private System.Windows.Forms.Button cmdOrdenar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clLimite;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clDeuda;
     }
 }
