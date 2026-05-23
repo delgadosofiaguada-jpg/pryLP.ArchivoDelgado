@@ -19,6 +19,7 @@ namespace pryLP.ArchivoDelgado
         public void Grabar(string cod, string nombre, string deu, string lim)
         {
             StreamWriter AD = new StreamWriter(NombreArchivo, true);
+            
             AD.Write(cod);
             AD.Write(";");
             AD.Write(nombre);
@@ -149,7 +150,7 @@ namespace pryLP.ArchivoDelgado
             string DatosLeidos;
             string[] VecDatos;
 
-            StreamWriter Reporte = new StreamWriter("Reposrte.csv", false);
+            StreamWriter Reporte = new StreamWriter("Reporte.csv", false, new System.Text.UTF8Encoding(true));
             //abrir
             Reporte.WriteLine("Listado de Clientes");
             Reporte.WriteLine("");

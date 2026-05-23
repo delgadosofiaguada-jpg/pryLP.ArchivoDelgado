@@ -19,12 +19,19 @@ namespace pryLP.ArchivoDelgado
         clsArchivoClientes x=new clsArchivoClientes();
         private void cmdCargar_Click(object sender, EventArgs e)
         {
-            x.Grabar(txtCodigo.Text,txtNombre.Text,txtDeuda.Text,txtLimite.Text);
+            if (txtCodigo.Text == "" || txtNombre.Text == "" || txtDeuda.Text == "" || txtLimite.Text == "")
+            {
+                MessageBox.Show("Por favor, complete todos los campos antes de cargar el cliente.", "Datos incompletos");
+                return;
+            }
+
+            x.Grabar(txtCodigo.Text, txtNombre.Text, txtDeuda.Text, txtLimite.Text);
             MessageBox.Show("Datos Grabados");
             txtCodigo.Text = "";
             txtNombre.Text = "";
             txtLimite.Text = "";
             txtDeuda.Text = "";
+            txtCodigo.Focus();//vuelve el cursor al txtcodigo
         }
 
         private void frmDatosDesarrollador_Load(object sender, EventArgs e)
