@@ -16,5 +16,10 @@ namespace pryLP.ArchivoDelgado
         {
             InitializeComponent();
         }
+
+        private void lblFechaNacimiento_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

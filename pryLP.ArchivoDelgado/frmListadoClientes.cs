@@ -51,5 +51,10 @@ namespace pryLP.ArchivoDelgado
             lblProm.Text = x.PromedioDeuda().ToString();
 
         }
+
+        private void lblPromedioDeuda_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

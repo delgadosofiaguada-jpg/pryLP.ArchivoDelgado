@@ -16,7 +16,7 @@ namespace pryLP.ArchivoDelgado
     {
 
         public string NombreArchivo = "Clientes.csv";
-        public void Grabar(string cod, string nombre, string deu, string lim)
+        public void Grabar(string cod, string nombre, string lim, string deu)
         {
             StreamWriter AD = new StreamWriter(NombreArchivo, true);
             
@@ -24,9 +24,9 @@ namespace pryLP.ArchivoDelgado
             AD.Write(";");
             AD.Write(nombre);
             AD.Write(";");
-            AD.Write(deu);
-            AD.Write(";");
             AD.Write(lim);
+            AD.Write(";");
+            AD.Write(deu);
             AD.WriteLine();
 
             AD.Close();
@@ -42,9 +42,7 @@ namespace pryLP.ArchivoDelgado
             }
             string DatosLeidos;
             string[] VecDatos;
-            //abrir
             StreamReader AD = new StreamReader(NombreArchivo);
-            //leer
             DatosLeidos = AD.ReadLine();
             Grilla.Rows.Clear();
             while (DatosLeidos != null)
@@ -55,7 +53,6 @@ namespace pryLP.ArchivoDelgado
                 Grilla.Rows.Add(VecDatos[0], VecDatos[1], VecDatos[3], VecDatos[2]);
                 DatosLeidos = AD.ReadLine();
             }
-            //cerrar
             AD.Close();
             AD.Dispose();
         }
@@ -95,10 +92,7 @@ namespace pryLP.ArchivoDelgado
             string[] VecDatos = new string[4];
             string DatosLeidos;
             Decimal Total = 0;
-
-            //ABRIR
             StreamReader AD = new StreamReader(NombreArchivo);
-            //LEER
             DatosLeidos = AD.ReadLine();
             while (DatosLeidos != null)
             {
@@ -106,12 +100,9 @@ namespace pryLP.ArchivoDelgado
                 Total = Total + Convert.ToDecimal(VecDatos[2]);
                 DatosLeidos = AD.ReadLine();
             }
-
-            //CERRAR
             AD.Close();
             AD.Dispose();
             return Total;
-
         }
 
         public Decimal PromedioDeuda()
@@ -120,9 +111,7 @@ namespace pryLP.ArchivoDelgado
             string DatosLeidos;
             Decimal Total = 0;
             Int32 C = 0;
-            //ABRIR
             StreamReader AD = new StreamReader(NombreArchivo);
-            //LEER
             DatosLeidos = AD.ReadLine();
             while (DatosLeidos != null)
             {
@@ -131,8 +120,6 @@ namespace pryLP.ArchivoDelgado
                 Total = Total + Convert.ToDecimal(VecDatos[2]);
                 DatosLeidos = AD.ReadLine();
             }
-
-            //CERRAR
             AD.Close();
             AD.Dispose();
 
@@ -141,8 +128,6 @@ namespace pryLP.ArchivoDelgado
                 return 0;
             }
             return Total / C;
-            
-
         }
         
         public void GenerarReporte()
@@ -151,13 +136,10 @@ namespace pryLP.ArchivoDelgado
             string[] VecDatos;
 
             StreamWriter Reporte = new StreamWriter("Reporte.csv", false, new System.Text.UTF8Encoding(true));
-            //abrir
             Reporte.WriteLine("Listado de Clientes");
             Reporte.WriteLine("");
             Reporte.WriteLine("Código;Nombre;Límite;Deuda");
             StreamReader AD = new StreamReader(NombreArchivo);
-
-            //leer
             DatosLeidos = AD.ReadLine();
             Int32 cantidad = 0;
             decimal total = 0;
@@ -177,8 +159,6 @@ namespace pryLP.ArchivoDelgado
                 cantidad++;
                 total = total + Convert.ToDecimal(VecDatos[2]);
             }
-            //cerrar
-
             Reporte.WriteLine();
             Reporte.Write("Total de Deudas:;;");
             Reporte.WriteLine(total);
@@ -217,7 +197,7 @@ namespace pryLP.ArchivoDelgado
 
         private void ReescribirArchivo()
         {
-            StreamWriter AD = new StreamWriter(NombreArchivo, false);//false,borra todo y carga nuevos, no duplica
+            StreamWriter AD = new StreamWriter(NombreArchivo, false);
             for (Int32 i = 0; i < IND; i++)
             {
                 AD.Write(VecClientes[i].Cod);
@@ -237,13 +217,13 @@ namespace pryLP.ArchivoDelgado
             RegClientes aux;
             for (Int32 c = 0; c < IND - 1; c++)
             {
-                for (Int32 i = 0; i < IND - 1; i++)//Recorre el vector
+                for (Int32 i = 0; i < IND - 1; i++)
                 {
                     if (VecClientes[i].Cod > VecClientes[i + 1].Cod)
                     {
                         aux = VecClientes[i];
-                        VecClientes[i] = VecClientes[i + 1];//Se pisa con el dato de abajo
-                        VecClientes[i + 1] = aux;//Se pisa con el dato de arriba
+                        VecClientes[i] = VecClientes[i + 1];
+                        VecClientes[i + 1] = aux;
                     }
                 }
             }
@@ -262,9 +242,7 @@ namespace pryLP.ArchivoDelgado
         {
             string DatosLeidos;
             string[] VecDatos;
-            //abrir
             StreamReader AD = new StreamReader(NombreArchivo);
-            //leer
             DatosLeidos = AD.ReadLine();
             Grilla.Rows.Clear();
             while (DatosLeidos != null)
@@ -278,7 +256,6 @@ namespace pryLP.ArchivoDelgado
                 }
                 DatosLeidos = AD.ReadLine();
             }
-            //cerrar
             AD.Close();
             AD.Dispose();
         }

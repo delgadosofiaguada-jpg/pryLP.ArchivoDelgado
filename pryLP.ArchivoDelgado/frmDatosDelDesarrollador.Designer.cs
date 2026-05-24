@@ -92,9 +92,10 @@
             this.lblFechaNacimiento.Location = new System.Drawing.Point(23, 397);
             this.lblFechaNacimiento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaNacimiento.Name = "lblFechaNacimiento";
-            this.lblFechaNacimiento.Size = new System.Drawing.Size(186, 18);
+            this.lblFechaNacimiento.Size = new System.Drawing.Size(210, 18);
             this.lblFechaNacimiento.TabIndex = 23;
-            this.lblFechaNacimiento.Text = "GitHub: delgadosofiaguada";
+            this.lblFechaNacimiento.Text = "GitHub: delgadosofiaguada-jpg";
+            this.lblFechaNacimiento.Click += new System.EventHandler(this.lblFechaNacimiento_Click);
             // 
             // txtMail
             // 
@@ -111,7 +112,7 @@
             // 
             this.lblTituloDatosP.AutoSize = true;
             this.lblTituloDatosP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloDatosP.ForeColor = System.Drawing.Color.Coral;
+            this.lblTituloDatosP.ForeColor = System.Drawing.Color.IndianRed;
             this.lblTituloDatosP.Location = new System.Drawing.Point(135, 21);
             this.lblTituloDatosP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTituloDatosP.Name = "lblTituloDatosP";
@@ -133,10 +134,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::pryLP.ArchivoDelgado.Properties.Resources.WIII;
-            this.pictureBox1.Location = new System.Drawing.Point(351, 91);
+            this.pictureBox1.Location = new System.Drawing.Point(349, 91);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(107, 206);
+            this.pictureBox1.Size = new System.Drawing.Size(113, 206);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
