@@ -32,16 +32,6 @@ namespace pryLP.ArchivoDelgado
             MessageBox.Show("Reporte generado correctamente");
         }
 
-        private void gbConsultaDatos_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblTot_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void cmdOrdenar_Click(object sender, EventArgs e)
         {
             x.OrdenarArchivo();
@@ -49,11 +39,6 @@ namespace pryLP.ArchivoDelgado
             lblCantC.Text = x.CantidadClientes().ToString();
             lblTot.Text = x.DeudaClientes().ToString();
             lblProm.Text = x.PromedioDeuda().ToString();
-
-        }
-
-        private void lblPromedioDeuda_Click(object sender, EventArgs e)
-        {
 
         }
     }

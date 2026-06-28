@@ -18,6 +18,7 @@ namespace pryLP.ArchivoDelgado
         public string NombreArchivo = "Clientes.csv";
         public void Grabar(string cod, string nombre, string lim, string deu)
         {
+            //Escribe texto linea por linea
             StreamWriter AD = new StreamWriter(NombreArchivo, true);
             
             AD.Write(cod);
@@ -42,21 +43,26 @@ namespace pryLP.ArchivoDelgado
             }
             string DatosLeidos;
             string[] VecDatos;
+            //Se necesita un vector para recorrer un archivo cvs
+
+            //Lee texto linea por linea
             StreamReader AD = new StreamReader(NombreArchivo);
-            DatosLeidos = AD.ReadLine();
+            DatosLeidos = AD.ReadLine();//Lee una linea completa
             Grilla.Rows.Clear();
+           
             while (DatosLeidos != null)
             {
-
+                //Separa los datos del cliente
                 VecDatos = DatosLeidos.Split(';');
 
                 Grilla.Rows.Add(VecDatos[0], VecDatos[1], VecDatos[3], VecDatos[2]);
-                DatosLeidos = AD.ReadLine();
+                DatosLeidos = AD.ReadLine();//Pasa a la linea siguiente
             }
             AD.Close();
             AD.Dispose();
         }
 
+        //LABEL CANTIDAD DE CLIENTES:
         public Int32 CantidadClientes()
         {
             if (!File.Exists(NombreArchivo))
@@ -65,7 +71,7 @@ namespace pryLP.ArchivoDelgado
             }
 
             string DatosLeidos;
-            Int32 C = 0;
+            Int32 C = 0;//Contador
             //ABRIR
             StreamReader AD = new StreamReader(NombreArchivo);
             //LEER
@@ -83,12 +89,16 @@ namespace pryLP.ArchivoDelgado
 
             return C;
         }
+
+        //LABEL TOTAL DEUDA:
         public Decimal DeudaClientes()
         {
             if (!File.Exists(NombreArchivo))
             {  
                 return 0;
             }    
+
+            //Declara vector para guardar los datos
             string[] VecDatos = new string[4];
             string DatosLeidos;
             Decimal Total = 0;
@@ -97,6 +107,7 @@ namespace pryLP.ArchivoDelgado
             while (DatosLeidos != null)
             {
                 VecDatos = DatosLeidos.Split(';');
+                //Suma las deudas
                 Total = Total + Convert.ToDecimal(VecDatos[2]);
                 DatosLeidos = AD.ReadLine();
             }
@@ -105,6 +116,7 @@ namespace pryLP.ArchivoDelgado
             return Total;
         }
 
+        //LABEL PROMEDIO DEUDA:
         public Decimal PromedioDeuda()
         {
             string[] VecDatos = new string[4];
@@ -123,13 +135,14 @@ namespace pryLP.ArchivoDelgado
             AD.Close();
             AD.Dispose();
 
-            if (C == 0)
+            if (C == 0)//Por si no hay clientes
             {
                 return 0;
             }
-            return Total / C;
+            return Total / C;//Promedio
         }
         
+        //REPORTE
         public void GenerarReporte()
         {
             string DatosLeidos;
@@ -139,7 +152,10 @@ namespace pryLP.ArchivoDelgado
             Reporte.WriteLine("Listado de Clientes");
             Reporte.WriteLine("");
             Reporte.WriteLine("Código;Nombre;Límite;Deuda");
+
+            //Se abre Clientes.csv para leer los datos y cargarlos en Reporte.csv
             StreamReader AD = new StreamReader(NombreArchivo);
+
             DatosLeidos = AD.ReadLine();
             Int32 cantidad = 0;
             decimal total = 0;
@@ -171,8 +187,19 @@ namespace pryLP.ArchivoDelgado
         }
 
         private RegClientes[] VecClientes = new RegClientes[1500];
-        private Int32 IND = 0;
-        private void CargarVector()
+        private Int32 IND = 0;//Cantidad de clientes cargados
+
+        private struct RegClientes//Todos los datos, moverlos y compararlos
+        {
+            public Int32 Cod;
+            public String Nom;
+            public Decimal Deu;
+            public Decimal Lim;
+        }
+
+
+
+        private void CargarVector()//Para ordenar
         {
             string DatosLeidos;
             string[] VecDatos = new string[4];
@@ -182,20 +209,39 @@ namespace pryLP.ArchivoDelgado
             DatosLeidos = AD.ReadLine();
             while (DatosLeidos != null)
             {
+                //IND = Posicion del vector
                 VecDatos = DatosLeidos.Split(';');
                 VecClientes[IND].Cod = Convert.ToInt32(VecDatos[0]);
                 VecClientes[IND].Nom = VecDatos[1];
                 VecClientes[IND].Deu = Convert.ToDecimal(VecDatos[3]);
                 VecClientes[IND].Lim = Convert.ToDecimal(VecDatos[2]);
                 IND++;//Pasa a la siguiemte linea del vector
+               
                 DatosLeidos = AD.ReadLine();//Lee la línea
             }
             AD.Close();
             AD.Dispose();
         }
 
+        private void OrdenarVector()//Para ordenar clientes por CODIGO
+        {
+            RegClientes aux;
+            for (Int32 c = 0; c < IND - 1; c++)
+            {
+                for (Int32 i = 0; i < IND - 1; i++)
+                {
+                    //Si el elemento es MAYOR que el siguiente INTERCAMBIAR
+                    if (VecClientes[i].Cod > VecClientes[i + 1].Cod)
+                    {
+                        aux = VecClientes[i]; //Guarda el actual
+                        VecClientes[i] = VecClientes[i + 1]; //El siguiente pasa adelante
+                        VecClientes[i + 1] = aux; //El actual pasa atras
+                    }
+                }
+            }
 
-        private void ReescribirArchivo()
+        }
+        private void ReescribirArchivo()//Sobreescribe con los datos ordenados del vector
         {
             StreamWriter AD = new StreamWriter(NombreArchivo, false);
             for (Int32 i = 0; i < IND; i++)
@@ -212,28 +258,13 @@ namespace pryLP.ArchivoDelgado
             AD.Close();
             AD.Dispose();
         }
-        private void OrdenarVector()
-        {
-            RegClientes aux;
-            for (Int32 c = 0; c < IND - 1; c++)
-            {
-                for (Int32 i = 0; i < IND - 1; i++)
-                {
-                    if (VecClientes[i].Cod > VecClientes[i + 1].Cod)
-                    {
-                        aux = VecClientes[i];
-                        VecClientes[i] = VecClientes[i + 1];
-                        VecClientes[i + 1] = aux;
-                    }
-                }
-            }
 
-        }
+        //ORDENAR
         public void OrdenarArchivo()
         {
-            CargarVector();
-            OrdenarVector();
-            ReescribirArchivo();
+            CargarVector();//LEE EL ARCHIVO:VECTOR
+            OrdenarVector();//ORDENA EL VECTOR
+            ReescribirArchivo();//ESCRIBE EL VECTOR:ARCHIVO
         }
 
 
@@ -249,7 +280,7 @@ namespace pryLP.ArchivoDelgado
             {
 
                 VecDatos = DatosLeidos.Split(';');
-                if (Convert.ToDecimal(VecDatos[2]) > 0)
+                if (Convert.ToDecimal(VecDatos[2]) > 0)//Deuda
                 {
                     Grilla.Rows.Add(VecDatos[0], VecDatos[1], VecDatos[3], VecDatos[2]);
           
@@ -259,6 +290,8 @@ namespace pryLP.ArchivoDelgado
             AD.Close();
             AD.Dispose();
         }
+
+        //LABEL TOTAL DEUDA:
         public Decimal DeudaDeudores()
         {
             if (!File.Exists(NombreArchivo)) return 0;
@@ -279,6 +312,7 @@ namespace pryLP.ArchivoDelgado
             return Total;
         }
 
+        //LABEL PROMEDIO DEUDORES Y CANTIDAD DEUDORES:
         public Decimal PromedioDeudores()
         {
             if (!File.Exists(NombreArchivo))
@@ -306,13 +340,7 @@ namespace pryLP.ArchivoDelgado
             if (C == 0) return 0;
             return Total / C;
         }
-        private struct RegClientes
-        {
-            public Int32 Cod;
-            public String Nom;
-            public Decimal Deu;
-            public Decimal Lim;
-        }
+        
 
         //ORDENAR:
         public void OrdenarArchivoDes()

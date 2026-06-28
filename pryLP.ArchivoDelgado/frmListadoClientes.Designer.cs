@@ -110,7 +110,7 @@
             this.gbConsultaDatos.TabIndex = 1;
             this.gbConsultaDatos.TabStop = false;
             this.gbConsultaDatos.Text = "Consulta de datos";
-            this.gbConsultaDatos.Enter += new System.EventHandler(this.gbConsultaDatos_Enter);
+           // this.gbConsultaDatos.Enter += new System.EventHandler(this.gbConsultaDatos_Enter);
             // 
             // cmdOrdenar
             // 
@@ -162,7 +162,7 @@
             this.lblTot.Name = "lblTot";
             this.lblTot.Size = new System.Drawing.Size(149, 26);
             this.lblTot.TabIndex = 4;
-            this.lblTot.Click += new System.EventHandler(this.lblTot_Click);
+           // this.lblTot.Click += new System.EventHandler(this.lblTot_Click);
             // 
             // lblPromedioDeuda
             // 
@@ -173,7 +173,7 @@
             this.lblPromedioDeuda.Size = new System.Drawing.Size(141, 18);
             this.lblPromedioDeuda.TabIndex = 3;
             this.lblPromedioDeuda.Text = "Promedio de deuda:";
-            this.lblPromedioDeuda.Click += new System.EventHandler(this.lblPromedioDeuda_Click);
+           // this.lblPromedioDeuda.Click += new System.EventHandler(this.lblPromedioDeuda_Click);
             // 
             // lblCantidadClientes
             // 
